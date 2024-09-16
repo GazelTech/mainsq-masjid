@@ -12,7 +12,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            
             background-color: #f9f9f9;
             box-sizing: border-box;
         }
@@ -21,20 +21,27 @@
             display: block;
             flex-direction: column;
             align-items: center;
-            padding: 20px;
+            justify-content: center;
+            padding: 10px;
             max-width: 100%;
         }
 
         .title {
             font-size: 3rem;
             text-align: center;
-            margin-bottom: 20px;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        .title2 {
+            font-size: 2rem;
+            text-align: center;
+            justify-content: center;
         }
 
         table {
             border-collapse: collapse;
             width: 100%;
-            max-width: 400px;
+            
         }
 
         table, th, td {
@@ -54,17 +61,19 @@
         @media (min-width: 768px) {
             .container {
                 flex-direction: row;
-                justify-content: space-between;
-                max-width: 80%;
+                justify-content: center;
+                max-width: 100%;
             }
 
             .title {
                 font-size: 3.5rem;
                 text-align: left;
+                justify-content: center;
             }
 
             table {
-                max-width: 250px;
+                max-width: 300px;
+                justify-content: center;
             }
         }
 
@@ -118,12 +127,13 @@
             </tr>
         </table>
     </div>
-    </div>
-    <div>
+    
+    <div class="title2">
         <br>
-        <h3> Get prayer time updates on Whatsapp </h3>
+        <h4> Get prayer time updates on Whatsapp </h4>
         <br>
         <img src = mainsqqr.png>
+    </div>
     </div>
 
     <script>
