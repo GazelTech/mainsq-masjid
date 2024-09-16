@@ -7,29 +7,34 @@
     <style>
         body {
             font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
             display: flex;
             justify-content: center;
-            align-items: center; 
+            align-items: center;
             height: 100vh;
-            margin: 0;
             background-color: #f9f9f9;
+            box-sizing: border-box;
         }
 
         .container {
-            display: flex;
-            justify-content: space-between;
-            width: 60%;
+            display: block;
+            flex-direction: column;
             align-items: center;
+            padding: 20px;
+            max-width: 100%;
         }
 
         .title {
             font-size: 3rem;
             text-align: center;
+            margin-bottom: 20px;
         }
 
         table {
             border-collapse: collapse;
-            
+            width: 100%;
+            max-width: 400px;
         }
 
         table, th, td {
@@ -44,14 +49,44 @@
         th {
             font-weight: bold;
         }
+
+        /* Media query for larger screens */
+        @media (min-width: 768px) {
+            .container {
+                flex-direction: row;
+                justify-content: space-between;
+                max-width: 80%;
+            }
+
+            .title {
+                font-size: 3.5rem;
+                text-align: left;
+            }
+
+            table {
+                max-width: 250px;
+            }
+        }
+
+        /* Media query for small devices (e.g. mobile) */
+        @media (max-width: 480px) {
+            .title {
+                font-size: 2rem;
+            }
+
+            th, td {
+                padding: 8px;
+            }
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
         <div class="title">
-            Main<br>Square<br>Mussallah
+            Main Square<br>Mussallah
         </div>
+        <div>
         <table>
             <tr>
                 <th>Prayer</th>
@@ -59,15 +94,15 @@
             </tr>
             <tr>
                 <td>Fajr</td>
-                <td>6:00 am</td>
+                <td>6:00 AM</td>
             </tr>
             <tr>
                 <td>Zuhr</td>
-                <td>1:45 pm</td>
+                <td>1:45 PM</td>
             </tr>
             <tr>
                 <td>Asr</td>
-                <td>6:15 pm</td>
+                <td>6:15 PM</td>
             </tr>
             <tr>
                 <td>Maghrib</td>
@@ -75,13 +110,20 @@
             </tr>
             <tr>
                 <td>Isha</td>
-                <td>09:30 pm</td>
+                <td>09:30 PM</td>
             </tr>
             <tr>
                 <td>Jummah</td>
-                <td>1:45 pm</td>
+                <td>1:45 PM</td>
             </tr>
         </table>
+    </div>
+    </div>
+    <div>
+        <br>
+        <h3> Get prayer time updates on Whatsapp </h3>
+        <br>
+        <img src = mainsqqr.png>
     </div>
 
     <script>
@@ -96,11 +138,14 @@
                     let sunsetUTC = data.results.sunset;
                     let sunsetTime = new Date(sunsetUTC);
                     
+                    // Add 3 minutes to the sunset time
+                    sunsetTime.setMinutes(sunsetTime.getMinutes() + 3);
+
                     // Convert UTC to local time
                     const options = { hour: '2-digit', minute: '2-digit' };
                     let localSunsetTime = sunsetTime.toLocaleTimeString([], options);
                     
-                    // Update the table with the sunset time
+                    // Update the table with the modified sunset time
                     document.getElementById('maghrib-time').innerText = localSunsetTime;
                 })
                 .catch(error => {
