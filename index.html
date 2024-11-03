@@ -3,19 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main Square Mussallah</title>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet">
+
+    <title>Main Square Musallah</title>
     <style>
         body {
-            font-family: 'Bogart', serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            
-            background-color: #f9f9f9;
-            box-sizing: border-box;
-        }
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700; /* Ensures bold styling suitable for titles */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+}
 
         .container {
             display: block;
@@ -90,10 +93,11 @@
     </style>
 </head>
 <body>
-<center>
+
     <div class="container">
+	<center>
         <div class="title">
-            Main Square<br>Musallah
+            Main Square Musallah
         </div>
         <div>
         <table>
@@ -127,7 +131,7 @@
             </tr>
         </table>
     </div>
-</center>
+
     <div class="title2">
         <br>
         <h4> Get prayer time updates on Whatsapp </h4>
@@ -135,7 +139,7 @@
         <img src = mainsqqr.png>
     </div>
     </div>
-
+</center>
     <script>
         // Function to fetch sunset time from Sunrise-Sunset API
         function fetchSunsetTime(lat, lon) {
