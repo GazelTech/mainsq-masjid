@@ -7,6 +7,8 @@
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/hijri-date/1.1.1/hijri-date.min.js"></script>
+
 
 
 
@@ -111,6 +113,12 @@
         <div class="title">
            <h1> Main<br> Square<br> Musallah </h1>
         </div>
+		<div>
+			<h2>Today's Date</h2>
+			 <p id="gregorianDate"></p>
+			 <p id="hijriDate"></p>
+		</div>
+
         <div>
 		<br>
         <table>
@@ -120,15 +128,15 @@
             </tr>
             <tr>
                 <td>Fajr</td>
-                <td>06:15 AM</td>
+                <td>6:00 am</td>
             </tr>
             <tr>
                 <td>Zuhr</td>
-                <td>01:30 PM</td>
+                <td>1:45 pm</td>
             </tr>
             <tr>
                 <td>Asr</td>
-                <td>03:45 PM</td>
+                <td>6:15 pm</td>
             </tr>
             <tr>
                 <td>Maghrib</td>
@@ -136,11 +144,11 @@
             </tr>
             <tr>
                 <td>Isha</td>
-                <td>08:00 PM</td>
+                <td>09:30 pm</td>
             </tr>
             <tr>
                 <td>Jummah</td>
-                <td>01:30 PM</td>
+                <td>1:45 pm</td>
             </tr>
         </table>
     </div>
@@ -188,6 +196,27 @@
         window.onload = function() {
             fetchSunsetTime(latitude, longitude);
         };
+    </script>
+
+	
+    <script>
+        // Function to update and display the current Gregorian and Hijri dates
+        function updateDates() {
+            // Get today's Gregorian date
+            const today = new Date();
+            const options = { day: 'numeric', month: 'long', year: 'numeric', weekday: 'long' };
+            const gregorianDate = today.toLocaleDateString('en-US', options); // Format for Gregorian date
+
+            // Get today's Hijri date using Intl.DateTimeFormat
+            const hijriDate = new Intl.DateTimeFormat('ar-TN-u-ca-islamic', options).format(Date.now()); // Format for Hijri date
+
+            // Update the textContent properties of the respective elements
+            document.querySelector('#gregorianDate').textContent = `Gregorian Date: ${gregorianDate}`;
+            document.querySelector('#hijriDate').textContent = `Hijri Date: ${hijriDate}`;
+        }
+
+        // Call the updateDates function initially to set the dates immediately
+        updateDates();
     </script>
 
 </body>
