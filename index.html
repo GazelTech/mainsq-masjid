@@ -208,7 +208,7 @@
             const gregorianDate = today.toLocaleDateString('en-US', options); // Format for Gregorian date
 
             // Get today's Hijri date using Intl.DateTimeFormat
-            const hijriDate = new Intl.DateTimeFormat('ar-TN-u-ca-islamic', options).format(Date.now()); // Format for Hijri date
+            const hijriDate = new Intl.DateTimeFormat('ar-SA-islamic', options).format(Date.now()); // Format for Hijri date
 
             // Update the textContent properties of the respective elements
             document.querySelector('#gregorianDate').textContent = `Gregorian Date: ${gregorianDate}`;
