@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Square Musallah - Toronto, ON</title>
-    <meta name="description" content="Main Square Musallah - Daily 5 prayers, Friday Jummah at 2:00 PM, and community updates in Main Square, Toronto.">
+    <meta name="description" content="Main Square Musallah - Daily 5 prayers, Friday Jummah at 2:00 PM, daily Ayah from Quran.com, Hadith from Sunnah.com, and community updates in Toronto.">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🕌</text></svg>">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Official Quran.com Embed Widget Script -->
+    <script defer src="https://quran.com/widget/embed-widget.v1.js"></script>
 
     <style>
         :root {
@@ -82,14 +85,14 @@
             display: flex;
             align-items: center;
             list-style: none;
-            gap: 20px;
+            gap: 18px;
         }
 
         .nav-links a {
             text-decoration: none;
             color: var(--text-muted);
             font-weight: 500;
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             transition: color 0.2s ease;
         }
 
@@ -100,7 +103,7 @@
         .nav-cta {
             background-color: var(--primary);
             color: #ffffff !important;
-            padding: 8px 18px;
+            padding: 8px 16px;
             border-radius: 9999px;
             transition: background-color 0.2s ease, transform 0.2s ease;
         }
@@ -167,9 +170,9 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 12px 26px;
+            padding: 12px 24px;
             border-radius: 9999px;
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 600;
             text-decoration: none;
             cursor: pointer;
@@ -232,7 +235,7 @@
             color: var(--text-muted);
             font-size: 1.05rem;
             margin-top: 8px;
-            max-width: 600px;
+            max-width: 620px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -355,6 +358,172 @@
             padding: 10px 14px;
             border-radius: 8px;
             margin-top: 14px;
+        }
+
+        /* ------------------ DAILY INSPIRATION (QURAN & SUNNAH) ------------------ */
+        .inspiration-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            align-items: stretch;
+        }
+
+        .inspiration-card {
+            background: var(--card-bg);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-md);
+            padding: 28px 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .inspiration-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 18px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--border);
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .source-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(15, 118, 110, 0.1);
+            color: var(--primary-dark);
+            font-size: 0.82rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 9999px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .card-refresh-btn {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            border-radius: 9999px;
+            padding: 4px 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .card-refresh-btn:hover {
+            color: var(--primary);
+            border-color: var(--primary);
+            background-color: var(--primary-light);
+        }
+
+        .quran-embed-wrapper {
+            flex-grow: 1;
+            min-height: 290px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .quran-embed-wrapper iframe {
+            width: 100%;
+            min-height: 290px;
+            border: none;
+            border-radius: var(--radius-md);
+            background-color: #fafafa;
+        }
+
+        .hadith-content-box {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            flex-grow: 1;
+            justify-content: center;
+        }
+
+        .hadith-arabic {
+            font-family: 'Amiri', 'Traditional Arabic', serif;
+            font-size: 1.4rem;
+            line-height: 2.1;
+            color: #0f172a;
+            direction: rtl;
+            text-align: right;
+            padding: 14px 16px;
+            background-color: #fdfbf7;
+            border-radius: var(--radius-md);
+            border-right: 4px solid var(--secondary);
+        }
+
+        .hadith-english {
+            font-size: 0.98rem;
+            line-height: 1.7;
+            color: var(--text-main);
+        }
+
+        .hadith-narrator {
+            font-weight: 700;
+            color: var(--primary-dark);
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+
+        .hadith-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.86rem;
+            color: var(--text-muted);
+            margin-top: 10px;
+            padding-top: 12px;
+            border-top: 1px dashed var(--border);
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .hadith-grade {
+            background-color: #ecfdf5;
+            color: #065f46;
+            font-weight: 700;
+            font-size: 0.78rem;
+            padding: 3px 10px;
+            border-radius: 9999px;
+            border: 1px solid #a7f3d0;
+        }
+
+        .inspiration-card-footer {
+            margin-top: 20px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .verify-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .verify-link:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
         }
 
         /* ------------------ ABOUT & COMMUNITY SECTION ------------------ */
@@ -608,7 +777,7 @@
 
         .footer-links {
             display: flex;
-            gap: 24px;
+            gap: 20px;
             list-style: none;
             flex-wrap: wrap;
             justify-content: center;
@@ -637,6 +806,10 @@
         @media (max-width: 868px) {
             .hero h1 {
                 font-size: 2.3rem;
+            }
+
+            .inspiration-grid {
+                grid-template-columns: 1fr;
             }
 
             .about-grid {
@@ -689,6 +862,11 @@
             .alert-banner {
                 font-size: 0.92rem;
             }
+
+            .hadith-arabic {
+                font-size: 1.25rem;
+                line-height: 2;
+            }
         }
     </style>
 </head>
@@ -706,7 +884,8 @@
 
         <ul class="nav-links" id="navLinks">
             <li><a href="#prayer-times">Prayer Times</a></li>
-            <li><a href="#jummah">Jummah</a></li>
+            <li><a href="#jummah">Jummah (2 PM)</a></li>
+            <li><a href="#daily-inspiration">Ayah & Hadith</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#donate">Donate</a></li>
@@ -723,7 +902,7 @@
         <div class="hero-buttons">
             <a href="#prayer-times" class="btn btn-primary">📅 View Prayer Times</a>
             <a href="#jummah" class="btn btn-outline">🕌 Jummah at 2:00 PM</a>
-            <a href="#community" class="btn btn-outline">💬 WhatsApp Group</a>
+            <a href="#daily-inspiration" class="btn btn-outline">📖 Daily Inspiration</a>
         </div>
     </header>
 
@@ -775,6 +954,82 @@
                     <p class="jummah-subnote">
                         Doors open 10 minutes prior (1:50 PM) and close shortly after prayer. Please arrive on time as space is limited.
                     </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DAILY INSPIRATION SECTION (QURAN.COM & SUNNAH.COM) -->
+    <section id="daily-inspiration">
+        <div class="section-header">
+            <span class="section-tag">Daily Reflection</span>
+            <h2 class="section-title">Ayat & Hadith of the Day</h2>
+            <p class="section-subtitle">Spiritual reminders from the Holy Quran via Quran.com and authentic traditions verified on Sunnah.com.</p>
+        </div>
+
+        <div class="inspiration-grid">
+            <!-- AYAH OF THE DAY (QURAN.COM WIDGET) -->
+            <div class="inspiration-card">
+                <div>
+                    <div class="inspiration-card-header">
+                        <span class="source-tag">📖 Ayat of the Day • Quran.com</span>
+                        <button type="button" class="card-refresh-btn" id="nextAyahBtn" title="Show another verse">
+                            Next Ayah ↻
+                        </button>
+                    </div>
+
+                    <div class="quran-embed-wrapper" id="quranWidgetContainer">
+                        <iframe 
+                            id="quranEmbedFrame"
+                            src="https://quran.com/embed/v1?verses=2%3A255&translations=131&mushaf=kfgqpc_v2" 
+                            title="Ayat of the Day from Quran.com"
+                            loading="lazy"
+                            data-quran-embed="true"
+                            allow="clipboard-write">
+                        </iframe>
+                    </div>
+                </div>
+
+                <div class="inspiration-card-footer">
+                    <span id="ayahReferenceLabel" style="font-weight: 600; font-size: 0.9rem; color: var(--text-muted);">Surah Al-Baqarah 2:255</span>
+                    <a id="quranDirectLink" href="https://quran.com/2:255" target="_blank" rel="noopener noreferrer" class="verify-link">
+                        Read on Quran.com ↗
+                    </a>
+                </div>
+            </div>
+
+            <!-- HADITH OF THE DAY (SUNNAH.COM CARD) -->
+            <div class="inspiration-card">
+                <div>
+                    <div class="inspiration-card-header">
+                        <span class="source-tag">📜 Hadith of the Day • Sunnah.com</span>
+                        <button type="button" class="card-refresh-btn" id="nextHadithBtn" title="Show another hadith">
+                            Next Hadith ↻
+                        </button>
+                    </div>
+
+                    <div class="hadith-content-box">
+                        <div class="hadith-arabic" id="hadithArabicText">
+                            إِنَّمَا الأَعْمَالُ بِالنِّيَّاتِ، وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى
+                        </div>
+                        <div class="hadith-narrator" id="hadithNarratorText">
+                            Narrated 'Umar bin Al-Khattab (رضي الله عنه):
+                        </div>
+                        <div class="hadith-english" id="hadithEnglishText">
+                            "The reward of deeds depends upon the intentions and every person will get the reward according to what he has intended."
+                        </div>
+                        <div class="hadith-meta">
+                            <span id="hadithSourceText">Sahih al-Bukhari 1</span>
+                            <span class="hadith-grade">Grade: Sahih (Authentic)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="inspiration-card-footer">
+                    <span style="font-size: 0.88rem; color: var(--text-muted);">Authenticated Prophetic Tradition</span>
+                    <a id="sunnahDirectLink" href="https://sunnah.com/bukhari:1" target="_blank" rel="noopener noreferrer" class="verify-link">
+                        View on Sunnah.com ↗
+                    </a>
                 </div>
             </div>
         </div>
@@ -924,6 +1179,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#prayer-times">Prayer Times</a></li>
                 <li><a href="#jummah">Jummah (2 PM)</a></li>
+                <li><a href="#daily-inspiration">Ayah & Hadith</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#donate">Donate (Cash)</a></li>
@@ -937,7 +1193,7 @@
         </div>
     </footer>
 
-    <!-- INTERACTION SCRIPT -->
+    <!-- INTERACTION SCRIPTS -->
     <script>
         // Mobile navigation toggle
         const menuBtn = document.getElementById('menuToggle');
@@ -952,6 +1208,138 @@
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
             });
+        });
+
+        // --- QURAN.COM AYAT DATA & ROTATION ---
+        const dailyVerses = [
+            {
+                key: '2:255',
+                encoded: '2%3A255',
+                name: 'Surah Al-Baqarah (2:255) - Ayat al-Kursi'
+            },
+            {
+                key: '2:186',
+                encoded: '2%3A186',
+                name: 'Surah Al-Baqarah (2:186)'
+            },
+            {
+                key: '39:53',
+                encoded: '39%3A53',
+                name: 'Surah Az-Zumar (39:53)'
+            },
+            {
+                key: '94:5-6',
+                encoded: '94%3A5-6',
+                name: 'Surah Ash-Sharh (94:5-6)'
+            },
+            {
+                key: '14:7',
+                encoded: '14%3A7',
+                name: 'Surah Ibrahim (14:7)'
+            },
+            {
+                key: '3:139',
+                encoded: '3%3A139',
+                name: 'Surah Ali \'Imran (3:139)'
+            },
+            {
+                key: '21:87',
+                encoded: '21%3A87',
+                name: 'Surah Al-Anbya (21:87)'
+            }
+        ];
+
+        // --- SUNNAH.COM AUTHENTIC HADITH DATA & ROTATION ---
+        const dailyHadiths = [
+            {
+                arabic: 'إِنَّمَا الأَعْمَالُ بِالنِّيَّاتِ، وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى',
+                narrator: 'Narrated \'Umar bin Al-Khattab (رضي الله عنه):',
+                english: '"The reward of deeds depends upon the intentions and every person will get the reward according to what he has intended."',
+                source: 'Sahih al-Bukhari 1',
+                link: 'https://sunnah.com/bukhari:1'
+            },
+            {
+                arabic: 'لاَ يُؤْمِنُ أَحَدُكُمْ حَتَّى يُحِبَّ لأَخِيهِ مَا يُحِبُّ لِنَفْسِهِ',
+                narrator: 'Narrated Anas bin Malik (رضي الله عنه):',
+                english: '"None of you will believe until you love for your brother what you love for yourself."',
+                source: 'Sahih al-Bukhari 13',
+                link: 'https://sunnah.com/bukhari:13'
+            },
+            {
+                arabic: 'خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ',
+                narrator: 'Narrated \'Uthman bin \'Affan (رضي الله عنه):',
+                english: '"The best amongst you are those who learn the Quran and teach it."',
+                source: 'Sahih al-Bukhari 5027',
+                link: 'https://sunnah.com/bukhari:5027'
+            },
+            {
+                arabic: 'لَيْسَ الشَّدِيدُ بِالصُّرَعَةِ، إِنَّمَا الشَّدِيدُ الَّذِي يَمْلِكُ نَفْسَهُ عِنْدَ الْغَضَبِ',
+                narrator: 'Narrated Abu Huraira (رضي الله عنه):',
+                english: '"The strong is not the one who overcomes the people by his strength, but the strong is the one who controls himself while in anger."',
+                source: 'Sahih al-Bukhari 6114',
+                link: 'https://sunnah.com/bukhari:6114'
+            },
+            {
+                arabic: 'الطُّهُورُ شَطْرُ الإِيمَانِ وَالْحَمْدُ لِلَّهِ تَمْلأُ الْمِيزَانَ',
+                narrator: 'Narrated Abu Malik al-Ash\'ari (رضي الله عنه):',
+                english: '"Purity is half of faith, and \'Alhamdulillah\' (Praise be to Allah) fills the scale."',
+                source: 'Sahih Muslim 223',
+                link: 'https://sunnah.com/muslim:223'
+            },
+            {
+                arabic: 'مَنْ سَلَكَ طَرِيقًا يَلْتَمِسُ فِيهِ عِلْمًا سَهَّلَ اللَّهُ لَهُ بِهِ طَرِيقًا إِلَى الْجَنَّةِ',
+                narrator: 'Narrated Abu Huraira (رضي الله عنه):',
+                english: '"Whoever treads a path in search of knowledge, Allah will make easy for him the path to Paradise."',
+                source: 'Sahih Muslim 2699',
+                link: 'https://sunnah.com/muslim:2699'
+            },
+            {
+                arabic: 'تُطْعِمُ الطَّعَامَ، وَتَقْرَأُ السَّلاَمَ عَلَى مَنْ عَرَفْتَ وَمَنْ لَمْ تَعْرِفْ',
+                narrator: 'Narrated \'Abdullah bin \'Amr (رضي الله عنه):',
+                english: '"A man asked: \'What deeds in Islam are good?\' The Prophet (ﷺ) said: \'To feed the poor and greet those whom you know and those whom you do not know.\'"',
+                source: 'Sahih al-Bukhari 12',
+                link: 'https://sunnah.com/bukhari:12'
+            }
+        ];
+
+        // Pick daily item based on date
+        const dayOfYear = Math.floor((new Date() - new Date(new Date().getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
+        let currentAyahIndex = dayOfYear % dailyVerses.length;
+        let currentHadithIndex = dayOfYear % dailyHadiths.length;
+
+        function updateAyah(index) {
+            const verse = dailyVerses[index];
+            const iframe = document.getElementById('quranEmbedFrame');
+            const refLabel = document.getElementById('ayahReferenceLabel');
+            const directLink = document.getElementById('quranDirectLink');
+
+            iframe.src = `https://quran.com/embed/v1?verses=${verse.encoded}&translations=131&mushaf=kfgqpc_v2`;
+            refLabel.textContent = verse.name;
+            directLink.href = `https://quran.com/${verse.key}`;
+        }
+
+        function updateHadith(index) {
+            const hadith = dailyHadiths[index];
+            document.getElementById('hadithArabicText').textContent = hadith.arabic;
+            document.getElementById('hadithNarratorText').textContent = hadith.narrator;
+            document.getElementById('hadithEnglishText').textContent = hadith.english;
+            document.getElementById('hadithSourceText').textContent = hadith.source;
+            document.getElementById('sunnahDirectLink').href = hadith.link;
+        }
+
+        // Initialize with today's Ayah and Hadith
+        updateAyah(currentAyahIndex);
+        updateHadith(currentHadithIndex);
+
+        // Interactive Next buttons
+        document.getElementById('nextAyahBtn').addEventListener('click', () => {
+            currentAyahIndex = (currentAyahIndex + 1) % dailyVerses.length;
+            updateAyah(currentAyahIndex);
+        });
+
+        document.getElementById('nextHadithBtn').addEventListener('click', () => {
+            currentHadithIndex = (currentHadithIndex + 1) % dailyHadiths.length;
+            updateHadith(currentHadithIndex);
         });
     </script>
 </body>

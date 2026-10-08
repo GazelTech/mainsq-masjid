@@ -10,22 +10,26 @@ A modern, responsive, single-page continuous-scrolling website designed for **Ma
 - **Hallway Policy**: Praying or lingering in the residential hallways and elevator lobby is strictly prohibited.
 - **Friday Jummah**: One single congregation at **2:00 PM** (Khutbah begins promptly at 2:00 PM).
 - **Donations**: Cash donations only via the donation boxes inside the musallah hall (no Interac e-Transfer or online payments).
-- **Updates**: WhatsApp community group via the on-page QR code and link.
+- **Updates**: WhatsApp community group via the on-page QR code and direct link.
 
 ---
 
 ## Sections Included
 
 1. **Header & Navigation**: Sticky navbar with smooth-scrolling anchor links and mobile drawer menu.
-2. **Hero Section**: Welcome banner, quick action buttons (*Prayer Times*, *Jummah 2 PM*, *WhatsApp Group*).
+2. **Hero Section**: Welcome banner, quick action buttons (*Prayer Times*, *Jummah 2 PM*, *Daily Inspiration*).
 3. **Prayer Schedule**: Embedded real-time prayer schedule powered by [AthanPlus](https://timing.athanplus.com), access notes, and hallway policy banner.
 4. **Jummah Prayer**: Highlighted single Friday prayer service at 2:00 PM.
-5. **About Our Musallah**: Overview of the space, community focus, and accessibility.
-6. **WhatsApp Community**: Direct link and QR code (`mainsqqr.png`) for daily iqamah updates.
-7. **Services**: 5 daily prayers, Friday Jummah, Ramadan programs, and neighborhood etiquette.
-8. **Support & Donations**: Clear notice for in-person cash donations in the musallah donation box.
-9. **Hours & Location**: Specific opening hours around prayer times, transit directions (Main Street Subway & Danforth GO), and parking.
-10. **Footer**: Navigation links and credits.
+5. **Daily Inspiration (Quran.com & Sunnah.com)**:
+   - **Ayat of the Day**: Official interactive embed from [Quran.com](https://quran.com) featuring Arabic recitation and Clear Quran translation.
+   - **Hadith of the Day**: Verified authentic Prophetic traditions from Sahih al-Bukhari and Sahih Muslim with verified references on [Sunnah.com](https://sunnah.com).
+   - Auto-rotates daily based on the calendar day, with interactive "Next" buttons.
+6. **About Our Musallah**: Overview of the space, community focus, and accessibility.
+7. **WhatsApp Community**: Direct link and QR code (`mainsqqr.png`) for daily iqamah updates.
+8. **Services**: 5 daily prayers, Friday Jummah, Ramadan programs, and neighborhood etiquette.
+9. **Support & Donations**: Clear notice for in-person cash donations in the musallah donation box.
+10. **Hours & Location**: Specific opening hours around prayer times, transit directions (Main Street Subway & Danforth GO), and parking.
+11. **Footer**: Quick links and credits.
 
 ---
 
@@ -34,7 +38,7 @@ A modern, responsive, single-page continuous-scrolling website designed for **Ma
 ```text
 mainsq-masjid/
 ├── .gitignore       # Git ignore rules
-├── index.html       # Single-page website
+├── index.html       # Single-page website with Quran.com & Sunnah.com widgets
 ├── mainsqqr.png     # WhatsApp QR code image
 └── README.md        # Project documentation
 ```
