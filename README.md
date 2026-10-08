@@ -6,6 +6,7 @@ A modern, responsive, single-page continuous-scrolling website designed for **Ma
 
 ## Musallah Information
 
+- **Location & Entrance**: Main Square Complex (Danforth Ave & Main St). The prayer room is on the **lower Parking level, first door to the left of stairs/elevators**.
 - **Opening Hours**: Open strictly around prayer times — **10 minutes before Iqamah until right after Jama'ah**. Closed between prayers.
 - **Hallway Policy**: Praying or lingering in the residential hallways and elevator lobby is strictly prohibited.
 - **Friday Jummah**: One single congregation (synced live with AthanPlus).
