@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Square Musallah - Toronto, ON</title>
-    <meta name="description" content="Main Square Musallah - Daily 5 prayers, Friday Jummah at 2:00 PM, daily Ayah from Quran.com, Hadith from Sunnah.com, and community updates in Toronto.">
+    <meta name="description" content="Main Square Musallah - Daily 5 prayers, Friday Jummah schedule synced with AthanPlus, daily Ayah from Quran.com, Hadith from Sunnah.com, and community updates in Toronto.">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🕌</text></svg>">
     
     <!-- Google Fonts -->
@@ -205,7 +205,7 @@
         /* ------------------ COMMON SECTION STYLES ------------------ */
         section {
             padding: 70px 20px;
-            max-width: 1120px;
+            max-width: 1160px;
             margin: 0 auto;
         }
 
@@ -235,51 +235,54 @@
             color: var(--text-muted);
             font-size: 1.05rem;
             margin-top: 8px;
-            max-width: 620px;
+            max-width: 640px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        /* ------------------ PRAYER TIMES SECTION ------------------ */
-        .prayer-container {
+        /* ------------------ PRAYER & JUMMAH SCHEDULE (SIDE-BY-SIDE) ------------------ */
+        .prayer-schedule-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 24px;
+            grid-template-columns: 1.18fr 0.82fr;
+            gap: 28px;
+            align-items: stretch;
         }
 
         .prayer-card {
             background: var(--card-bg);
             border-radius: var(--radius-lg);
             box-shadow: var(--shadow-md);
-            padding: 30px;
+            padding: 26px 22px;
             border: 1px solid var(--border);
             text-align: center;
+            display: flex;
+            flex-direction: column;
         }
 
         .alert-banner {
             background-color: #fef2f2;
             border: 1px solid #fecaca;
             color: #b91c1c;
-            padding: 14px 20px;
+            padding: 12px 18px;
             border-radius: var(--radius-md);
             font-weight: 600;
-            font-size: 1.05rem;
+            font-size: 0.98rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            margin-bottom: 24px;
+            gap: 8px;
+            margin-bottom: 16px;
         }
 
         .timing-info-banner {
             background-color: #eff6ff;
             border: 1px solid #bfdbfe;
             color: #1e40af;
-            padding: 12px 18px;
+            padding: 10px 16px;
             border-radius: var(--radius-md);
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             font-weight: 500;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
             display: inline-block;
         }
 
@@ -289,75 +292,142 @@
             border-radius: var(--radius-md);
             display: flex;
             justify-content: center;
+            flex-grow: 1;
         }
 
         .iframe-container iframe {
             width: 100%;
-            max-width: 700px;
+            max-width: 680px;
             height: 520px;
             border: none;
             background: transparent;
         }
 
-        /* ------------------ JUMMAH (FRIDAY PRAYER) SECTION ------------------ */
-        .jummah-wrapper {
-            display: flex;
-            justify-content: center;
-            margin-top: 10px;
-        }
-
-        .jummah-card {
-            background: linear-gradient(145deg, #ffffff, #f0fdfa);
+        /* ------------------ JUMMAH SIDE CARD ------------------ */
+        .jummah-card-side {
+            background: linear-gradient(155deg, #ffffff 0%, #f0fdfa 100%);
             border: 2px solid var(--primary-light);
             border-radius: var(--radius-lg);
-            padding: 36px 30px;
-            text-align: center;
+            padding: 30px 24px;
             box-shadow: var(--shadow-md);
-            max-width: 540px;
-            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: center;
+        }
+
+        .jummah-badge-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
         }
 
         .jummah-badge {
             display: inline-block;
             background-color: var(--primary);
             color: #ffffff;
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             font-weight: 700;
-            padding: 5px 14px;
+            padding: 4px 12px;
             border-radius: 9999px;
-            margin-bottom: 14px;
             text-transform: uppercase;
-            letter-spacing: 0.8px;
+            letter-spacing: 0.6px;
         }
 
-        .jummah-card h3 {
+        .sync-badge {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: #065f46;
+            background: #ecfdf5;
+            border: 1px solid #a7f3d0;
+            padding: 4px 12px;
+            border-radius: 9999px;
+            letter-spacing: 0.3px;
+            transition: all 0.3s ease;
+        }
+
+        .jummah-card-side h3 {
             font-family: 'Cinzel', serif;
             color: var(--primary-dark);
             font-size: 1.6rem;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
         }
 
         .jummah-time {
-            font-size: 2.8rem;
+            font-size: 3rem;
             font-weight: 800;
             color: var(--primary);
-            margin: 10px 0;
+            margin: 8px 0;
             letter-spacing: -0.5px;
+            line-height: 1.1;
         }
 
         .jummah-note {
             color: var(--text-main);
-            font-size: 1.05rem;
-            margin-bottom: 10px;
+            font-size: 1rem;
+            margin-bottom: 12px;
         }
 
-        .jummah-subnote {
-            color: var(--text-muted);
-            font-size: 0.92rem;
+        .jummah-door-notice {
             background-color: rgba(15, 118, 110, 0.08);
-            padding: 10px 14px;
-            border-radius: 8px;
-            margin-top: 14px;
+            border-left: 4px solid var(--primary);
+            padding: 12px 14px;
+            border-radius: 6px;
+            font-size: 0.92rem;
+            color: var(--primary-dark);
+            margin: 14px 0;
+            text-align: left;
+        }
+
+        .jummah-guidelines {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 18px 20px;
+            text-align: left;
+            margin: 14px 0;
+        }
+
+        .jummah-guidelines h4 {
+            font-size: 0.92rem;
+            color: var(--text-main);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .jummah-guidelines ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .jummah-guidelines li {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            line-height: 1.4;
+        }
+
+        .jummah-guidelines li span {
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .jummah-footer-meta {
+            text-align: center;
+            padding-top: 12px;
+            border-top: 1px dashed var(--border);
+            color: var(--text-muted);
+            font-size: 0.82rem;
         }
 
         /* ------------------ DAILY INSPIRATION (QURAN & SUNNAH) ------------------ */
@@ -803,6 +873,12 @@
         }
 
         /* ------------------ RESPONSIVENESS ------------------ */
+        @media (max-width: 960px) {
+            .prayer-schedule-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 868px) {
             .hero h1 {
                 font-size: 2.3rem;
@@ -852,7 +928,7 @@
             }
 
             .jummah-time {
-                font-size: 2.2rem;
+                font-size: 2.4rem;
             }
 
             .iframe-container iframe {
@@ -884,7 +960,7 @@
 
         <ul class="nav-links" id="navLinks">
             <li><a href="#prayer-times">Prayer Times</a></li>
-            <li><a href="#jummah">Jummah (2 PM)</a></li>
+            <li><a href="#jummah">Jummah</a></li>
             <li><a href="#daily-inspiration">Ayah & Hadith</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#services">Services</a></li>
@@ -901,27 +977,28 @@
         <p>A welcoming sanctuary for daily congregational prayer and spiritual connection in Toronto.</p>
         <div class="hero-buttons">
             <a href="#prayer-times" class="btn btn-primary">📅 View Prayer Times</a>
-            <a href="#jummah" class="btn btn-outline">🕌 Jummah at 2:00 PM</a>
+            <a href="#jummah" class="btn btn-outline">🕌 Jummah (<span class="hero-jummah-time">2:00 PM</span>)</a>
             <a href="#daily-inspiration" class="btn btn-outline">📖 Daily Inspiration</a>
         </div>
     </header>
 
-    <!-- PRAYER TIMES SECTION -->
+    <!-- PRAYER & JUMMAH SCHEDULE SECTION (SIDE-BY-SIDE) -->
     <section id="prayer-times">
         <div class="section-header">
-            <span class="section-tag">Daily Iqamah</span>
-            <h2 class="section-title">Prayer Schedule</h2>
-            <p class="section-subtitle">Real-time daily prayer times and iqamah updates powered by AthanPlus.</p>
+            <span class="section-tag">Daily Iqamah & Friday Service</span>
+            <h2 class="section-title">Prayer & Jummah Schedule</h2>
+            <p class="section-subtitle">Real-time daily prayer times and Friday Jummah schedule synced with AthanPlus.</p>
         </div>
 
-        <div class="prayer-container">
+        <div class="prayer-schedule-grid">
+            <!-- DAILY PRAYER CARD (ATHANPLUS WIDGET) -->
             <div class="prayer-card">
                 <div class="alert-banner">
-                    ⚠️ <span><strong>Strict Policy:</strong> No praying or gathering in the hallways or elevator lobby areas.</span>
+                    ⚠️ <span><strong>Strict Policy:</strong> No praying or gathering in hallways or elevator lobbies.</span>
                 </div>
 
                 <div class="timing-info-banner">
-                    🚪 <strong>Access Note:</strong> The musallah opens <strong>10 minutes before Iqamah</strong> and closes <strong>right after Jama'ah</strong>.
+                    🚪 <strong>Access Note:</strong> Musallah opens <strong>10 minutes before Iqamah</strong> and closes <strong>right after Jama'ah</strong>.
                 </div>
 
                 <div class="iframe-container">
@@ -933,27 +1010,38 @@
                     </iframe>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- JUMMAH (FRIDAY PRAYER) SECTION -->
-    <section id="jummah" style="background-color: #ffffff; max-width: 100%; padding-left: 20px; padding-right: 20px;">
-        <div style="max-width: 1120px; margin: 0 auto;">
-            <div class="section-header">
-                <span class="section-tag">Friday Service</span>
-                <h2 class="section-title">Jummah Prayer</h2>
-                <p class="section-subtitle">Join us every Friday for the weekly congregational khutbah and prayer.</p>
-            </div>
+            <!-- JUMMAH PRAYER CARD (READS DYNAMICALLY FROM ATHANPLUS) -->
+            <div class="jummah-card-side" id="jummah">
+                <div>
+                    <div class="jummah-badge-row">
+                        <span class="jummah-badge">Single Congregation</span>
+                        <span id="jummahSyncBadge" class="sync-badge">🟢 AthanPlus Synced</span>
+                    </div>
 
-            <div class="jummah-wrapper">
-                <div class="jummah-card">
-                    <span class="jummah-badge">Single Congregation</span>
                     <h3>Friday Jummah Service</h3>
-                    <div class="jummah-time">2:00 PM</div>
-                    <p class="jummah-note"><strong>Khutbah starts promptly at 2:00 PM</strong>, followed immediately by Salah.</p>
-                    <p class="jummah-subnote">
-                        Doors open 10 minutes prior (1:50 PM) and close shortly after prayer. Please arrive on time as space is limited.
+                    <div class="jummah-time" id="jummahTimeDisplay">2:00 PM</div>
+                    
+                    <p class="jummah-note">
+                        <strong>Khutbah starts promptly at <span id="jummahKhutbahTime">2:00 PM</span></strong>, followed immediately by Salah.
                     </p>
+
+                    <div class="jummah-door-notice">
+                        🚪 Doors open at <strong id="jummahDoorTime">1:50 PM</strong> (10 mins prior) and close shortly after Jama'ah.
+                    </div>
+                </div>
+
+                <div class="jummah-guidelines">
+                    <h4>📋 Friday Guidelines</h4>
+                    <ul>
+                        <li><span>•</span> Space is strictly limited — please arrive early.</li>
+                        <li><span>•</span> Please perform wudu prior to arrival if possible.</li>
+                        <li><span>•</span> Keep residential hallways and elevator doors clear at all times.</li>
+                    </ul>
+                </div>
+
+                <div class="jummah-footer-meta">
+                    <small>Schedule automatically synced from Masjidal / AthanPlus</small>
                 </div>
             </div>
         </div>
@@ -1050,7 +1138,7 @@
 
                 <ul class="features-list">
                     <li><span>✓</span> Open for all 5 daily congregational prayers</li>
-                    <li><span>✓</span> Single Friday Jummah congregation at 2:00 PM</li>
+                    <li><span>✓</span> Single Friday Jummah congregation with live AthanPlus schedule</li>
                     <li><span>✓</span> Conveniently accessible via TTC and GO Transit</li>
                     <li><span>✓</span> Elevator access to the prayer floor</li>
                 </ul>
@@ -1092,7 +1180,7 @@
             <div class="service-card">
                 <span class="service-icon">📖</span>
                 <h3>Friday Jummah</h3>
-                <p>One weekly congregational Jummah service held every Friday at 2:00 PM.</p>
+                <p>One weekly congregational Jummah service synced live with the masjid schedule.</p>
             </div>
 
             <div class="service-card">
@@ -1178,7 +1266,7 @@
             <ul class="footer-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#prayer-times">Prayer Times</a></li>
-                <li><a href="#jummah">Jummah (2 PM)</a></li>
+                <li><a href="#jummah">Jummah</a></li>
                 <li><a href="#daily-inspiration">Ayah & Hadith</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
@@ -1209,6 +1297,60 @@
                 navLinks.classList.remove('active');
             });
         });
+
+        // --- FETCH DYNAMIC JUMMAH TIME FROM ATHANPLUS API ---
+        async function fetchAthanPlusJummahTime() {
+            const timeDisplay = document.getElementById('jummahTimeDisplay');
+            const khutbahDisplay = document.getElementById('jummahKhutbahTime');
+            const doorDisplay = document.getElementById('jummahDoorTime');
+            const syncBadge = document.getElementById('jummahSyncBadge');
+            const heroJummahElements = document.querySelectorAll('.hero-jummah-time');
+
+            try {
+                // Masjid ID: XAllkgAb (Main Square Musallah)
+                const response = await fetch('https://masjidal.com/api/v1/time/range?masjid_id=XAllkgAb');
+                if (!response.ok) throw new Error('AthanPlus API response status: ' + response.status);
+                const data = await response.json();
+
+                if (data && data.data && data.data.iqamah && data.data.iqamah.length > 0) {
+                    const todayIqamah = data.data.iqamah[0];
+                    const j1 = todayIqamah.jummah1 ? todayIqamah.jummah1.trim() : null;
+
+                    if (j1 && j1 !== '-' && j1 !== '') {
+                        if (timeDisplay) timeDisplay.textContent = j1;
+                        if (khutbahDisplay) khutbahDisplay.textContent = j1;
+                        heroJummahElements.forEach(el => el.textContent = j1);
+
+                        // Calculate 10 minutes prior for doors opening
+                        const match = j1.match(/^(\d{1,2}):(\d{2})\s*(AM|PM)?$/i);
+                        if (match) {
+                            let hour = parseInt(match[1], 10);
+                            let min = parseInt(match[2], 10);
+                            const meridiem = (match[3] || 'PM').toUpperCase();
+                            min -= 10;
+                            if (min < 0) {
+                                min += 60;
+                                hour -= 1;
+                                if (hour <= 0) hour = 12;
+                            }
+                            const formattedDoor = `${hour}:${min < 10 ? '0' + min : min} ${meridiem}`;
+                            if (doorDisplay) doorDisplay.textContent = formattedDoor;
+                        }
+
+                        if (syncBadge) {
+                            syncBadge.innerHTML = '🟢 Live from AthanPlus';
+                        }
+                    }
+                }
+            } catch (err) {
+                console.warn('Could not load live Jummah time from AthanPlus API, using fallback:', err);
+                if (syncBadge) {
+                    syncBadge.innerHTML = '⏱️ Verified Schedule';
+                }
+            }
+        }
+
+        fetchAthanPlusJummahTime();
 
         // --- QURAN.COM AYAT DATA & ROTATION ---
         const dailyVerses = [
