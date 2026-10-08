@@ -3,194 +3,956 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/hijri-date/1.1.1/hijri-date.min.js"></script>
+    <title>Main Square Musallah - Toronto, ON</title>
+    <meta name="description" content="Main Square Musallah - Daily 5 prayers, Friday Jummah at 2:00 PM, and community updates in Main Square, Toronto.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🕌</text></svg>">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-
-
-
-
-    <title>Main Square Musallah</title>
     <style>
-        body {
-	    font-family: 'Libre Baskerville', serif;
-	    font-weight: 700; /* Ensures bold styling suitable for titles */
-	    margin: 0;
-	    padding: 0;
-	    display: flex;
-	    justify-content: center;
-	    align-items: center;
-	    min-height: 100vh;
-	    background-color: #f9f9f9;
-	    box-sizing: border-box;
-}
+        :root {
+            --primary: #0f766e;
+            --primary-dark: #115e59;
+            --primary-light: #ccfbf1;
+            --secondary: #d97706;
+            --warning-color: #dc2626;
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --border: #e2e8f0;
+            --radius-md: 12px;
+            --radius-lg: 18px;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 20px -2px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 10px 30px -4px rgba(15, 118, 110, 0.12);
+        }
 
-        .container {
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* ------------------ NAVIGATION BAR ------------------ */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            padding: 14px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text-main);
+            font-family: 'Cinzel', serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .nav-brand span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            background-color: var(--primary);
+            color: #ffffff !important;
+            padding: 8px 18px;
+            border-radius: 9999px;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .nav-cta:hover {
+            background-color: var(--primary-dark) !important;
+            transform: translateY(-1px);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-main);
+        }
+
+        /* ------------------ HERO SECTION ------------------ */
+        .hero {
+            background: linear-gradient(135deg, #042f2e 0%, #115e59 100%);
+            color: #ffffff;
+            padding: 90px 20px 80px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(6px);
+            padding: 6px 16px;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 14px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #e6fffa;
+            max-width: 650px;
+            margin: 0 auto 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 26px;
+            border-radius: 9999px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background-color: #ffffff;
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: #f0fdfa;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #ffffff;
+            border: 2px solid rgba(255, 255, 255, 0.7);
+        }
+
+        .btn-outline:hover {
+            border-color: #ffffff;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* ------------------ COMMON SECTION STYLES ------------------ */
+        section {
+            padding: 70px 20px;
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 46px;
+        }
+
+        .section-tag {
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-bottom: 6px;
             display: block;
-            flex-direction: column;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-top: 8px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ------------------ PRAYER TIMES SECTION ------------------ */
+        .prayer-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        .prayer-card {
+            background: var(--card-bg);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            padding: 30px;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .alert-banner {
+            background-color: #fef2f2;
+            border: 1px solid #fecaca;
+            color: #b91c1c;
+            padding: 14px 20px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 1.05rem;
+            display: flex;
             align-items: center;
             justify-content: center;
-            padding: 10px;
-            max-width: 100%;
+            gap: 10px;
+            margin-bottom: 24px;
         }
 
-        .title {
-            font-size: 4rem;
-            text-align: center;
-            justify-content: center;
-            margin-bottom: 5px;
+        .timing-info-banner {
+            background-color: #eff6ff;
+            border: 1px solid #bfdbfe;
+            color: #1e40af;
+            padding: 12px 18px;
+            border-radius: var(--radius-md);
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            display: inline-block;
         }
-        .title2 {
-            font-size: 2rem;
-            text-align: center;
-            justify-content: center;
-        }
-		.responsive_image{
-			width: 30%;
-			height: auto;
-		}
-        
-		#warning {
-            color: red;
-        }	
 
-
-        table {
-            border-collapse: collapse;
+        .iframe-container {
             width: 100%;
-            
+            overflow: hidden;
+            border-radius: var(--radius-md);
+            display: flex;
+            justify-content: center;
         }
 
-        table, th, td {
-            border: 1px solid black;
+        .iframe-container iframe {
+            width: 100%;
+            max-width: 700px;
+            height: 520px;
+            border: none;
+            background: transparent;
         }
 
-        th, td {
-            padding: 10px;
+        /* ------------------ JUMMAH (FRIDAY PRAYER) SECTION ------------------ */
+        .jummah-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .jummah-card {
+            background: linear-gradient(145deg, #ffffff, #f0fdfa);
+            border: 2px solid var(--primary-light);
+            border-radius: var(--radius-lg);
+            padding: 36px 30px;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            max-width: 540px;
+            width: 100%;
+        }
+
+        .jummah-badge {
+            display: inline-block;
+            background-color: var(--primary);
+            color: #ffffff;
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 5px 14px;
+            border-radius: 9999px;
+            margin-bottom: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .jummah-card h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--primary-dark);
+            font-size: 1.6rem;
+            margin-bottom: 8px;
+        }
+
+        .jummah-time {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin: 10px 0;
+            letter-spacing: -0.5px;
+        }
+
+        .jummah-note {
+            color: var(--text-main);
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        .jummah-subnote {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            background-color: rgba(15, 118, 110, 0.08);
+            padding: 10px 14px;
+            border-radius: 8px;
+            margin-top: 14px;
+        }
+
+        /* ------------------ ABOUT & COMMUNITY SECTION ------------------ */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-content h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            color: var(--primary-dark);
+            margin-bottom: 16px;
+        }
+
+        .about-content p {
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            font-size: 1.05rem;
+        }
+
+        .features-list {
+            list-style: none;
+            display: grid;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .features-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .features-list li span {
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .community-card {
+            background: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: 34px 28px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border);
             text-align: center;
         }
 
-        th {
-            font-weight: bold;
+        .community-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--text-main);
         }
 
-        /* Media query for larger screens */
-        @media (min-width: 768px) {
-            .container {
-                flex-direction: row;
-                justify-content: center;
-                max-width: 100%;
+        .community-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 18px;
+        }
+
+        .qr-box {
+            display: inline-block;
+            padding: 10px;
+            background: #ffffff;
+            border: 2px dashed #cbd5e1;
+            border-radius: var(--radius-md);
+            margin-bottom: 18px;
+        }
+
+        .qr-image {
+            width: 170px;
+            height: auto;
+            display: block;
+            border-radius: 6px;
+        }
+
+        /* ------------------ SERVICES SECTION ------------------ */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            border-radius: var(--radius-md);
+            padding: 28px 22px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .service-icon {
+            font-size: 2.2rem;
+            margin-bottom: 16px;
+            display: inline-block;
+        }
+
+        .service-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+        }
+
+        /* ------------------ DONATION SECTION (CASH ONLY) ------------------ */
+        .donation-box {
+            background: linear-gradient(135deg, #f0fdfa 0%, #e6fffa 100%);
+            border: 2px solid var(--primary-light);
+            border-radius: var(--radius-lg);
+            padding: 44px 30px;
+            text-align: center;
+            max-width: 820px;
+            margin: 0 auto;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .donation-box h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+        }
+
+        .donation-box p {
+            color: var(--text-muted);
+            max-width: 620px;
+            margin: 0 auto 24px;
+            font-size: 1.05rem;
+        }
+
+        .cash-donation-card {
+            background: #ffffff;
+            border-radius: var(--radius-md);
+            padding: 28px 24px;
+            max-width: 580px;
+            margin: 0 auto;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cash-icon {
+            font-size: 2.8rem;
+            line-height: 1;
+        }
+
+        .cash-badge {
+            background-color: #fef3c7;
+            color: #92400e;
+            font-size: 0.82rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 9999px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .cash-donation-card h4 {
+            font-size: 1.3rem;
+            color: var(--text-main);
+        }
+
+        .cash-donation-card p {
+            color: var(--text-muted);
+            font-size: 0.96rem;
+            margin-bottom: 6px;
+        }
+
+        .cash-reminder {
+            background-color: #f8fafc;
+            border: 1px dashed #cbd5e1;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            width: 100%;
+        }
+
+        /* ------------------ LOCATION & VISIT SECTION ------------------ */
+        .visit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .visit-card {
+            background: var(--card-bg);
+            border-radius: var(--radius-md);
+            padding: 26px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .visit-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--primary-dark);
+        }
+
+        .visit-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+
+        /* ------------------ FOOTER ------------------ */
+        footer {
+            background-color: #042f2e;
+            color: #99f6e4;
+            padding: 50px 20px 30px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1120px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer-logo {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .footer-links a {
+            color: #ccfbf1;
+            text-decoration: none;
+            font-size: 0.92rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #ffffff;
+        }
+
+        .footer-bottom {
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.85rem;
+            color: #5eead4;
+        }
+
+        /* ------------------ RESPONSIVENESS ------------------ */
+        @media (max-width: 868px) {
+            .hero h1 {
+                font-size: 2.3rem;
             }
 
-            .title {
-                font-size: 4rem;
-                text-align: center;
-                justify-content: center;
+            .about-grid {
+                grid-template-columns: 1fr;
             }
 
-            table {
-                max-width: 300px;
-                justify-content: center;
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #ffffff;
+                flex-direction: column;
+                padding: 20px;
+                border-bottom: 1px solid var(--border);
+                box-shadow: var(--shadow-md);
+            }
+
+            .nav-links.active {
+                display: flex;
             }
         }
 
-        /* Media query for small devices (e.g. mobile) */
-        @media (max-width: 480px) {
-            .title {
-                font-size: 2rem;
+        @media (max-width: 520px) {
+            .hero {
+                padding: 60px 16px 50px;
             }
 
-            th, td {
-                padding: 8px;
+            .hero h1 {
+                font-size: 1.85rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .jummah-time {
+                font-size: 2.2rem;
+            }
+
+            .iframe-container iframe {
+                height: 500px;
+            }
+
+            .alert-banner {
+                font-size: 0.92rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-	<center>
-        <div class="title">
-           <h1> Main Square Musallah </h1>
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar">
+        <a href="#home" class="nav-brand">
+            🕌 Main Square <span>Musallah</span>
+        </a>
+
+        <button class="mobile-menu-btn" id="menuToggle" aria-label="Toggle navigation">
+            ☰
+        </button>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#prayer-times">Prayer Times</a></li>
+            <li><a href="#jummah">Jummah</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#donate">Donate</a></li>
+            <li><a href="#contact">Hours & Location</a></li>
+            <li><a href="#community" class="nav-cta">WhatsApp Updates</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="hero" id="home">
+        <div class="hero-badge">Serving the Main Square & Danforth Community</div>
+        <h1>Main Square Musallah</h1>
+        <p>A welcoming sanctuary for daily congregational prayer and spiritual connection in Toronto.</p>
+        <div class="hero-buttons">
+            <a href="#prayer-times" class="btn btn-primary">📅 View Prayer Times</a>
+            <a href="#jummah" class="btn btn-outline">🕌 Jummah at 2:00 PM</a>
+            <a href="#community" class="btn btn-outline">💬 WhatsApp Group</a>
         </div>
-		<div>
-			<iframe src="https://timing.athanplus.com/masjid/widgets/embed?theme=3&masjid_id=XAllkgAb" type="text/html" width="100%" height="500" frameborder="0" allowtransparency="true"></iframe>
-		</div>
+    </header>
 
-        <div>
-		<br>
-        
-    </div>
+    <!-- PRAYER TIMES SECTION -->
+    <section id="prayer-times">
+        <div class="section-header">
+            <span class="section-tag">Daily Iqamah</span>
+            <h2 class="section-title">Prayer Schedule</h2>
+            <p class="section-subtitle">Real-time daily prayer times and iqamah updates powered by AthanPlus.</p>
+        </div>
 
-    <div class="title2">
-        <h5 id="warning"> Please Note:  No prayer in hallway and elevator area<h4>
-        <h5> Get prayer time updates on Whatsapp </h5>
-        <img src = mainsqqr.png class=responsive_image>
-    </div>
-		
-    </div>
-</center>
+        <div class="prayer-container">
+            <div class="prayer-card">
+                <div class="alert-banner">
+                    ⚠️ <span><strong>Strict Policy:</strong> No praying or gathering in the hallways or elevator lobby areas.</span>
+                </div>
+
+                <div class="timing-info-banner">
+                    🚪 <strong>Access Note:</strong> The musallah opens <strong>10 minutes before Iqamah</strong> and closes <strong>right after Jama'ah</strong>.
+                </div>
+
+                <div class="iframe-container">
+                    <iframe 
+                        src="https://timing.athanplus.com/masjid/widgets/embed?theme=3&masjid_id=XAllkgAb" 
+                        title="Main Square Musallah Prayer Times"
+                        loading="eager"
+                        allowtransparency="true">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JUMMAH (FRIDAY PRAYER) SECTION -->
+    <section id="jummah" style="background-color: #ffffff; max-width: 100%; padding-left: 20px; padding-right: 20px;">
+        <div style="max-width: 1120px; margin: 0 auto;">
+            <div class="section-header">
+                <span class="section-tag">Friday Service</span>
+                <h2 class="section-title">Jummah Prayer</h2>
+                <p class="section-subtitle">Join us every Friday for the weekly congregational khutbah and prayer.</p>
+            </div>
+
+            <div class="jummah-wrapper">
+                <div class="jummah-card">
+                    <span class="jummah-badge">Single Congregation</span>
+                    <h3>Friday Jummah Service</h3>
+                    <div class="jummah-time">2:00 PM</div>
+                    <p class="jummah-note"><strong>Khutbah starts promptly at 2:00 PM</strong>, followed immediately by Salah.</p>
+                    <p class="jummah-subnote">
+                        Doors open 10 minutes prior (1:50 PM) and close shortly after prayer. Please arrive on time as space is limited.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT & COMMUNITY UPDATES SECTION -->
+    <section id="about">
+        <div class="about-grid">
+            <div class="about-content">
+                <span class="section-tag">About Our Musallah</span>
+                <h3>A Dedicated Space for Prayer & Unity</h3>
+                <p>
+                    Main Square Musallah was established to serve the spiritual needs of residents, workers, and visitors in the Main Square and Danforth corridor. We offer a clean, peaceful environment for Muslims to perform their daily obligations.
+                </p>
+                <p>
+                    To ensure harmony with our neighbors in the residential complex, access is strictly limited to prayer times.
+                </p>
+
+                <ul class="features-list">
+                    <li><span>✓</span> Open for all 5 daily congregational prayers</li>
+                    <li><span>✓</span> Single Friday Jummah congregation at 2:00 PM</li>
+                    <li><span>✓</span> Conveniently accessible via TTC and GO Transit</li>
+                    <li><span>✓</span> Elevator access to the prayer floor</li>
+                </ul>
+            </div>
+
+            <div class="community-card" id="community">
+                <span class="section-tag">WhatsApp Community</span>
+                <h4>Get Daily Updates on WhatsApp</h4>
+                <p>Scan the QR code or tap the button below to receive real-time iqamah changes, announcements, and Ramadan schedules.</p>
+                
+                <div class="qr-box">
+                    <img src="mainsqqr.png" alt="Scan to join Main Square Musallah WhatsApp group" class="qr-image">
+                </div>
+
+                <div>
+                    <a href="https://chat.whatsapp.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="background-color: #25D366; color: white;">
+                        💬 Join WhatsApp Group
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="services">
+        <div class="section-header">
+            <span class="section-tag">What We Offer</span>
+            <h2 class="section-title">Musallah Services</h2>
+            <p class="section-subtitle">Providing congregational worship facilities for the local neighborhood.</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <span class="service-icon">🕌</span>
+                <h3>5 Daily Prayers</h3>
+                <p>Congregational prayers led regularly from Fajr to Isha around scheduled times.</p>
+            </div>
+
+            <div class="service-card">
+                <span class="service-icon">📖</span>
+                <h3>Friday Jummah</h3>
+                <p>One weekly congregational Jummah service held every Friday at 2:00 PM.</p>
+            </div>
+
+            <div class="service-card">
+                <span class="service-icon">🌙</span>
+                <h3>Ramadan Services</h3>
+                <p>Nightly Taraweeh prayers and special Ramadan programs announced on WhatsApp.</p>
+            </div>
+
+            <div class="service-card">
+                <span class="service-icon">🤝</span>
+                <h3>Neighborhood Etiquette</h3>
+                <p>Strict commitment to keeping hallways clear and quiet to respect complex residents.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- DONATE SECTION (CASH ONLY) -->
+    <section id="donate">
+        <div class="donation-box">
+            <span class="section-tag">Support The Musallah</span>
+            <h3>Help Maintain The House of Allah</h3>
+            <p>
+                Main Square Musallah relies on the donations of our worshippers to cover rent, utilities, and routine upkeep.
+            </p>
+
+            <div class="cash-donation-card">
+                <div class="cash-icon">💵</div>
+                <span class="cash-badge">Cash In-Person Only</span>
+                <h4>Donations Accepted in Cash at the Musallah</h4>
+                <p>
+                    Please note that <strong>we do not have Interac e-Transfer</strong> or online donations.
+                </p>
+                <p>
+                    Contributions can be placed directly into the secure cash donation boxes located inside the musallah hall during prayer times.
+                </p>
+                <div class="cash-reminder">
+                    📍 Please deposit donations in person when the musallah is open for Salah.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCATION & VISIT INFORMATION -->
+    <section id="contact">
+        <div class="section-header">
+            <span class="section-tag">Plan Your Visit</span>
+            <h2 class="section-title">Hours & Location</h2>
+            <p class="section-subtitle">Located in the Main Square complex in East York / Toronto.</p>
+        </div>
+
+        <div class="visit-grid">
+            <div class="visit-card">
+                <h3>⏰ Musallah Hours</h3>
+                <p><strong>Open strictly around Salah times:</strong></p>
+                <p>Opens approximately <strong>10 minutes before</strong> each Iqamah and closes <strong>right after Jama'ah</strong>.</p>
+                <p style="color: var(--warning-color); font-weight: 600; margin-top: 10px;">
+                    ⚠️ Closed between prayer times. Waiting or praying in residential hallways or elevator lobbies is strictly prohibited.
+                </p>
+            </div>
+
+            <div class="visit-card">
+                <h3>📍 Address & Entrance</h3>
+                <p><strong>Main Square Musallah</strong></p>
+                <p>Main Square Complex</p>
+                <p>Toronto, ON M4C, Canada</p>
+                <p><small>Intersection: Danforth Ave & Main St</small></p>
+                <p><small>Elevator access available to the prayer floor.</small></p>
+            </div>
+
+            <div class="visit-card">
+                <h3>🚆 Transit & Parking</h3>
+                <p><strong>Subway:</strong> 2-minute walk from Main Street Subway Station (Line 2).</p>
+                <p><strong>GO Train:</strong> Short walk from Danforth GO Station.</p>
+                <p><strong>Parking:</strong> Street parking along nearby streets and paid underground visitor parking.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">Main Square Musallah</div>
+            <ul class="footer-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#prayer-times">Prayer Times</a></li>
+                <li><a href="#jummah">Jummah (2 PM)</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#donate">Donate (Cash)</a></li>
+                <li><a href="#contact">Hours & Location</a></li>
+            </ul>
+
+            <div class="footer-bottom">
+                <p>© 2026 Main Square Musallah. All rights reserved.</p>
+                <p style="margin-top: 6px; opacity: 0.8;">May Allah reward all those who support and maintain our prayer spaces.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTION SCRIPT -->
     <script>
-        // Function to fetch sunset time from Sunrise-Sunset API
-        function fetchSunsetTime(lat, lon) {
-            const url = `https://api.sunrise-sunset.org/json?lat=${lat}&lng=${lon}&formatted=0`;
-            
-            fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                    // Extract sunset time from the API response
-                    let sunsetUTC = data.results.sunset;
-                    let sunsetTime = new Date(sunsetUTC);
-                    
-                    // Add 3 minutes to the sunset time
-                    sunsetTime.setMinutes(sunsetTime.getMinutes() + 2);
+        // Mobile navigation toggle
+        const menuBtn = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
 
-                    // Convert UTC to local time
-                    const options = { hour: '2-digit', minute: '2-digit' };
-                    let localSunsetTime = sunsetTime.toLocaleTimeString([], options);
-                    
-                    // Update the table with the modified sunset time
-                    document.getElementById('maghrib-time').innerText = localSunsetTime;
-                })
-                .catch(error => {
-                    console.error("Error fetching sunset time:", error);
-                    document.getElementById('maghrib-time').innerText = "Error";
-                });
-        }
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
 
-        // Replace with your location's latitude and longitude
-        const latitude = 43.6532;  // Example: Toronto latitude
-        const longitude = -79.3832;  // Example: Toronto longitude
-
-        // Fetch the sunset time on page load
-        window.onload = function() {
-            fetchSunsetTime(latitude, longitude);
-        };
+        // Close mobile menu on clicking any link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
     </script>
-
-	
-    <script>
-        // Function to update and display the current Gregorian and Hijri dates
-        function updateDates() {
-            // Get today's Gregorian date
-            const today = new Date();
-            const options = { day: 'numeric', month: 'long', year: 'numeric', weekday: 'long' };
-            const gregorianDate = today.toLocaleDateString('en-US', options); // Format for Gregorian date
-
-            // Get today's Hijri date using Intl.DateTimeFormat
-            const hijriDate = new Intl.DateTimeFormat('ar-SA-islamic', options).format(Date.now()); // Format for Hijri date
-
-            // Update the textContent properties of the respective elements
-            document.querySelector('#gregorianDate').textContent = `Gregorian Date: ${gregorianDate}`;
-            document.querySelector('#hijriDate').textContent = `Hijri Date: ${hijriDate}`;
-        }
-
-        // Call the updateDates function initially to set the dates immediately
-        updateDates();
-    </script>
-
 </body>
 </html>
